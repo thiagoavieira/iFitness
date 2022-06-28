@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="@string/menu_drawer_home"
+        android:icon="@drawable/ic_home" />
+
+    <item
+        android:id="@+id/nav_account"
+        android:title="@string/menu_drawer_minha_conta"
+        android:icon="@drawable/ic_account" />
+
+    <item
+        android:id="@+id/nav_lista_atividades"
+        android:title="@string/menu_drawer_lista_atividades"
+        android:icon="@drawable/ic_lista_atividades" />
+
+    <item
+        android:id="@+id/nav_my_progress"
+        android:title="@string/menu_drawer_meu_progresso"
+        android:icon="@drawable/ic_home_progress" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="@string/menu_drawer_sair"
+        android:icon="@drawable/ic_logout" />
+
+</menu>

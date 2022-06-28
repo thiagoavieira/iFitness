@@ -1,0 +1,71 @@
+<resources>
+    <!-- Android Manifest -->
+    <string name="app_name">iFitness</string>
+    <!-- Tela Menu Drawer -->
+    <string name="menu_drawer_home">Home</string>
+    <string name="menu_drawer_minha_conta">Minha Conta</string>
+    <string name="menu_drawer_meu_progresso">Meu Progresso</string>
+    <string name="menu_drawer_sair">Sair</string>
+    <string name="menu_drawer_lista_atividades">Lista de Atividades</string>
+    <!-- Main Activity -->
+    <string name="toogle_open">open</string>
+    <string name="toogle_close">close</string>
+    <!-- Tela Usuario Cadastro -->
+    <string name="usuario_cadastro_nome">Nome</string>
+    <string name="usuario_cadastro_email">Email</string>
+    <string name="usuario_cadastro_senha">Senha</string>
+    <string name="usuario_cadastro_cadastrar">CADASTRAR</string>
+    <!-- Tela Usuario Login -->
+    <string name="usuario_login_entrar">ENTRAR</string>
+    <string name="usuario_login_esqueceu_sua_senha">Esqueci minha senha</string>
+    <string name="usuario_login_nao_cadastro">Não tem cadastro?</string>
+    <string name="usuario_login_cadastre_se_aqui">CADASTRAR</string>
+    <!-- Tela Usuario Perfil -->
+    <string name="usuario_perfil_sobrenome">Sobrenome</string>
+    <string name="usuario_perfil_data_nascimento">Data de nascimento</string>
+    <string name="usuario_perfil_sexo">Sexo</string>
+    <string name="usuario_perfil_telefone">Telefone</string>
+    <string name="usuario_perfil_atualizar">ATUALIZAR</string>
+    <!-- Usuario Cadastro Activity -->
+    <string name="usuario_cadastro_titulo">Cadastro de Usuário</string>
+    <!-- Usuario Login Activity -->
+    <string name="usuario_login_titulo">Login de Usuário</string>
+    <string name="msg_login">E-mail/Senha inválidos!</string>
+    <string name="msg_erro_senha">A senha tem que ter 6 ou mais caracteres.</string>
+    <string name="btn_ok_resetar_senha">Ok</string>
+    <string name="btn_cancel_resetar_senha">Cancelar</string>
+    <string name="msg_resetar_email">Por favor, verifique o seu e-mail para alterar a senha.</string>
+    <string name="title_dialog_resetar_senha">Resetar a senha</string>
+    <!-- Usuario Perfil Activity -->
+    <string name="usuario_perfil_titulo">Perfil do Usuário</string>
+    <!-- Tela Ciclismo Detalhe -->
+    <string name="ciclismo_detalhe_btn_confirmar">CONFIRMAR</string>
+    <!-- Tela Corrida Detalhe -->
+    <string name="corrida_detalhe_btn_confirmar">CONFIRMAR</string>
+    <!-- Tela Natacao Detalhe -->
+    <string name="natacao_detalhe_btn_confirmar">CONFIRMAR</string>
+    <!-- Tela Caminhada Detalhe -->
+    <string name="activity_detalhe_distancia">Distância percorrida (Km)</string>
+    <string name="caminhada_detalhe_btn_confirmar">CONFIRMAR</string>
+    <!-- Tela Menu Header Layout -->
+    <string name="menu_header_layout_entrar"><u>Entrar</u></string>
+    <string name="activity_detalhe_duracao">Duração (Min)</string>
+
+    <string name="msg_perfil_sucesso">Dados atualizados com sucesso!</string>
+
+    <string name="msg_atividade_sucesso">Atividade cadastrada com sucesso!</string>
+    <!-- Array Spinner Sexo -->
+    <string-array name="spSexo">
+        <item>Masculino</item>
+        <item>Feminino</item>
+        <item>Não informar</item>
+    </string-array>
+    <!-- Array Spinner Emblemas -->
+    <string-array name="spEmblemas">
+        <item>Emblema 1</item>
+    </string-array>
+    <!-- Array Spinner Pontuacao -->
+    <string-array name="spPontuacao">
+        <item>Nivel 0</item>
+    </string-array>
+</resources>
