@@ -64,7 +64,10 @@ public class UsuarioCadastroActivity extends AppCompatActivity {
                         "",
                         "",
                         "",
-                        "");
+                        0,
+                        0.0,
+                        0,
+                        0.0);
 
                 if(usuario.getSenha().length() >= 6){
                     usuarioViewModel.createUsuario(usuario);

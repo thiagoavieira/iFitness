@@ -108,7 +108,7 @@
                         android:id="@+id/txt_edit_perfil_dataNasc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textCapWords"/>
+                        android:inputType="date"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -169,7 +169,7 @@
                         android:id="@+id/txt_edit_perfil_telefone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textCapWords"/>
+                        android:inputType="phone"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 

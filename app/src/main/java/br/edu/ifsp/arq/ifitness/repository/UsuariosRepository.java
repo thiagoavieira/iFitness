@@ -161,10 +161,9 @@ public class UsuariosRepository {
 
     public void createAtividade(Atividades atividades)  {
         firestore.collection("atividade").document(atividades.getId()).set(atividades).addOnSuccessListener(unused -> {
-            Log.d(this.toString(), "Atividade de " + atividades.getCategoria() + "cadastrada com scuesso.");
+            Log.d(this.toString(), "Atividade de " + atividades.getCategoria() + " cadastrada com scuesso.");
         });
     }
-
 
 
     public LiveData<Usuario> load(String usuarioId){
@@ -197,38 +196,21 @@ public class UsuariosRepository {
         usuarioDao.insert(atividades);
     }
 
-    public void update(Usuario usuario){
-        usuarioDao.update(usuario);
-    }
+
 
     public void update(Atividades atividades){
         usuarioDao.update(atividades);
     }
 
 
-    public Boolean update(UsuarioComAtividades usuarioComAtividades){
+    public Boolean update(Usuario usuario){
         final Boolean[] atualizado = {false};
 
-        DocumentReference usuarioRef = firestore.collection("usuario").document(usuarioComAtividades.getUsuario().getId());
+        DocumentReference usuarioRef = firestore.collection("usuario").document(usuario.getId());
 
-        usuarioRef.set(usuarioComAtividades.getUsuario()).addOnSuccessListener(unused -> {
+        usuarioRef.set(usuario).addOnSuccessListener(unused -> {
             atualizado[0] = true;
         });
-
-        CollectionReference atividadesRef = usuarioRef.collection("atividades");
-
-        Atividades atividades = usuarioComAtividades.getAtividades().get(0);
-
-        if(atividades.getId().isEmpty()){
-            atividadesRef.add(atividades).addOnSuccessListener( end ->{
-                atividades.setId(end.getId());
-                atualizado[0] = true;
-            });
-        }else{
-            atividadesRef.document(atividades.getId()).set(atividades).addOnSuccessListener(unused -> {
-                atualizado[0] = true;
-            });
-        }
 
         return atualizado[0];
     }

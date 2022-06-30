@@ -83,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, EstatisticasActivity.class);
                         startActivity(intent);
                         break;
+                    case R.id.nav_leaderboard:
+                        intent = new Intent(MainActivity.this, LeaderboardActivity.class);
+                        startActivity(intent);
+                        break;
                     case R.id.nav_logout:
                         usuarioViewModel.logout();
                         finish();

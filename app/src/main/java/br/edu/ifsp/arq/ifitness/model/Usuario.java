@@ -24,10 +24,14 @@ public class Usuario implements Serializable {
     private String telefone;
     private String imagem;
     private String emblema;
-    private String pontuacao;
+    private int pontuacao;
+    private Double distanciaTotal;
+    private int duracaoTotal;
+    private Double caloriasTotal;
 
     public Usuario(String email, String nome, String sobrenome, String senha, String dataNasc,
-                   String sexo, String telefone, String imagem, String emblema, String pontuacao) {
+                   String sexo, String telefone, String imagem, String emblema, int pontuacao,
+                   Double distanciaTotal, int duracaoTotal, Double caloriasTotal) {
         this.id = UUID.randomUUID().toString();
         this.email = email;
         this.nome = nome;
@@ -39,12 +43,16 @@ public class Usuario implements Serializable {
         this.imagem = imagem;
         this.emblema = emblema;
         this.pontuacao = pontuacao;
+        this.distanciaTotal = distanciaTotal;
+        this.duracaoTotal = duracaoTotal;
+        this.caloriasTotal = caloriasTotal;
 
     }
 
     @Ignore
     public Usuario() {
-        this("", "", "", "", "", "", "", "", "", "");
+        this("", "", "", "", "", "", "",
+                "", "", 0, 0.0, 0, 0.0);
     }
 
     @NonNull
@@ -128,15 +136,37 @@ public class Usuario implements Serializable {
         this.emblema = emblema;
     }
 
-    public String getPontuacao() {
+    public int getPontuacao() {
         return pontuacao;
     }
 
-    public void setPontuacao(String pontuacao) {
+    public void setPontuacao(int pontuacao) {
         this.pontuacao = pontuacao;
     }
 
+    public Double getDistanciaTotal() {
+        return distanciaTotal;
+    }
 
+    public void setDistanciaTotal(Double distanciaTotal) {
+        this.distanciaTotal = distanciaTotal;
+    }
+
+    public int getDuracaoTotal() {
+        return duracaoTotal;
+    }
+
+    public void setDuracaoTotal(int duracaoTotal) {
+        this.duracaoTotal = duracaoTotal;
+    }
+
+    public Double getCaloriasTotal() {
+        return caloriasTotal;
+    }
+
+    public void setCaloriasTotal(Double caloriasTotal) {
+        this.caloriasTotal = caloriasTotal;
+    }
 
     @Override
     public boolean equals(Object o) {

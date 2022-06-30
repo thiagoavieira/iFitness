@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".EstatisticasActivity"
-    android:background="@color/whiteSecondary"
     android:gravity="center">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -22,7 +21,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="8dp">
+        android:background="@drawable/background_estatisticas">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,7 +31,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -55,34 +55,35 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="32dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="45dp"
-                    android:layout_weight="0.80"
+                    android:layout_weight="0.75"
                     android:src="@drawable/ic_route_solid" />
 
                 <TextView
                     android:id="@+id/activity_estatisticas_distancia_total"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5"
+                    android:layout_weight="2"
                     android:text="Distância total percorrida:"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/colorSecondary" />
 
                 <TextView
                     android:id="@+id/activity_estatisticas_distancia_total_numero"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.75"
+                    android:layout_weight="1"
+                    android:layout_marginRight="8dp"
                     android:text="-"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/colorSecondary" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
@@ -102,20 +103,21 @@
                     android:id="@+id/activity_estatisticas_duracao_total"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5"
+                    android:layout_weight="2"
                     android:text="Duração total de tempo:"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/colorSecondary" />
 
                 <TextView
                     android:id="@+id/activity_estatisticas_duracao_total_numero"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.75"
+                    android:layout_weight="1.2"
+                    android:layout_marginRight="8dp"
                     android:text="-"
-                    android:textAlignment="center"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/colorSecondary" />
+                    android:textColor="@color/black"/>
             </LinearLayout>
 
             <LinearLayout
@@ -128,27 +130,28 @@
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="45dp"
-                    android:layout_weight="0.80"
+                    android:layout_weight="0.85"
                     android:src="@drawable/ic_fire" />
 
                 <TextView
                     android:id="@+id/activity_estatisticas_calorias_total"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5"
+                    android:layout_weight="2"
                     android:text="Total de calorias queimadas:"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/colorSecondary" />
 
                 <TextView
                     android:id="@+id/activity_estatisticas_calorias_total_numero"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.75"
+                    android:layout_weight="1.39"
                     android:text="-"
-                    android:textAlignment="center"
+                    android:layout_marginRight="8dp"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/colorSecondary" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <LinearLayout
@@ -162,34 +165,35 @@
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="45dp"
-                    android:layout_weight="0.80"
+                    android:layout_weight="0.45"
                     android:src="@drawable/ic_pontuacao" />
 
                 <TextView
                     android:id="@+id/activity_estatisticas_pontuacao_total"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5"
+                    android:layout_weight="1"
                     android:text="Pontuação total:"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/colorSecondary" />
 
                 <TextView
                     android:id="@+id/activity_estatisticas_pontuacao_total_numero"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.75"
+                    android:layout_weight="0.8"
                     android:text="-"
-                    android:textAlignment="center"
+                    android:layout_marginRight="8dp"
+                    android:textAlignment="textEnd"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/colorSecondary" />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@color/colorSecondary" />
 
@@ -197,7 +201,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
                 android:gravity="center_horizontal"
                 android:text="CONQUISTAS"
@@ -210,13 +214,13 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/txt_view_perfil_nivel"
+                    android:id="@+id/txt_view_estatisticas_emblemas"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="14dp"
                     android:layout_marginTop="8dp"
                     android:layout_weight="2"
-                    android:text="Nível:"
+                    android:text="Emblemas:"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/colorSecondary"/>
             </LinearLayout>

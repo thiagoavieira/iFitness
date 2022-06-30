@@ -4,7 +4,7 @@
     <!-- Tela Menu Drawer -->
     <string name="menu_drawer_home">Home</string>
     <string name="menu_drawer_minha_conta">Minha Conta</string>
-    <string name="menu_drawer_meu_progresso">Meu Progresso</string>
+    <string name="menu_drawer_meu_progresso">Minhas Estatisticas</string>
     <string name="menu_drawer_sair">Sair</string>
     <string name="menu_drawer_lista_atividades">Lista de Atividades</string>
     <!-- Main Activity -->
@@ -54,6 +54,7 @@
     <string name="msg_perfil_sucesso">Dados atualizados com sucesso!</string>
 
     <string name="msg_atividade_sucesso">Atividade cadastrada com sucesso!</string>
+    <string name="menu_drawer_leaderboard">Leaderboard</string>
     <!-- Array Spinner Sexo -->
     <string-array name="spSexo">
         <item>Masculino</item>
@@ -62,10 +63,10 @@
     </string-array>
     <!-- Array Spinner Emblemas -->
     <string-array name="spEmblemas">
-        <item>Emblema 1</item>
-    </string-array>
-    <!-- Array Spinner Pontuacao -->
-    <string-array name="spPontuacao">
-        <item>Nivel 0</item>
+        <item>Troféu Iniciante (15km)</item>
+        <item>Troféu Bronze (25km)</item>
+        <item>Troféu Prata (50km)</item>
+        <item>Troféu Ouro (100km)</item>
+        <item>Troféu Platinum (150km)</item>
     </string-array>
 </resources>

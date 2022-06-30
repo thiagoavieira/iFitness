@@ -28,6 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import br.edu.ifsp.arq.ifitness.mask.MaskEditUtil;
 import br.edu.ifsp.arq.ifitness.model.Usuario;
 import br.edu.ifsp.arq.ifitness.viewmodel.UsuarioViewModel;
 
@@ -70,8 +71,10 @@ public class UsuarioPerfilActivity extends AppCompatActivity {
         txtSobrenome = findViewById(R.id.txt_edit_perfil_sobrenome);
         txtEmail = findViewById(R.id.txt_edit_perfil_email);
         txtDataNasc = findViewById(R.id.txt_edit_perfil_dataNasc);
+        txtDataNasc.addTextChangedListener(MaskEditUtil.mask(txtDataNasc, MaskEditUtil.FORMAT_DATE));
         spnSexo = findViewById(R.id.sp_sexo);
         txtTelefone = findViewById(R.id.txt_edit_perfil_telefone);
+        txtTelefone.addTextChangedListener(MaskEditUtil.mask(txtTelefone, MaskEditUtil.FORMAT_FONE));
         imagePerfil = findViewById(R.id.iv_profile_image);
         imagePerfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +92,6 @@ public class UsuarioPerfilActivity extends AppCompatActivity {
         }else{
             imagePerfil.setImageResource(R.drawable.profile_icon);
         }
-
 
         usuarioViewModel = new ViewModelProvider(this)
                 .get(UsuarioViewModel.class);
@@ -193,13 +195,21 @@ public class UsuarioPerfilActivity extends AppCompatActivity {
         if(txtDataNasc.getText().toString().trim().isEmpty()){
             txtDataNasc.setError("Preencha o campo data de nascimento");
             isValid = false;
-        }else{
+        }else if(txtDataNasc.getText().toString().trim().length() != 10){
+            txtDataNasc.setError("Data inválida");
+            isValid = false;
+        }
+        else{
             txtDataNasc.setError(null);
         }
         if(txtTelefone.getText().toString().trim().isEmpty()){
             txtTelefone.setError("Preencha o campo telefone");
             isValid = false;
-        }else{
+        }else if(txtTelefone.getText().toString().trim().length() != 14){
+            txtTelefone.setError("Telefone inválido");
+            isValid = false;
+        }
+        else{
             txtTelefone.setError(null);
         }
         return isValid;

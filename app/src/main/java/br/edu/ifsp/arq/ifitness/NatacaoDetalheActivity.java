@@ -81,6 +81,17 @@ public class NatacaoDetalheActivity extends AppCompatActivity {
                                         dateFormat.format(date));
 
                                 usuarioViewModel.createAtividade(atividades);
+
+                                Double distanciaAux = atividades.getDistancia();
+                                usuario.setDistanciaTotal(usuario.getDistanciaTotal()+distanciaAux);
+                                int duracaoAux = atividades.getDuracao();
+                                usuario.setDuracaoTotal(usuario.getDuracaoTotal()+duracaoAux);
+                                Double caloriasAux = duracaoAux * distanciaAux;
+                                usuario.setCaloriasTotal(usuario.getCaloriasTotal()+caloriasAux);
+                                usuario.setPontuacao(usuario.getDistanciaTotal().intValue());
+
+                                usuarioViewModel.update(usuario);
+
                                 Toast.makeText(NatacaoDetalheActivity.this, R.string.msg_atividade_sucesso, Toast.LENGTH_SHORT).show();
                             }
 

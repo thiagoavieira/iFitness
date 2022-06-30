@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,9 +23,15 @@ public class EstatisticasActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView txtTitulo;
     private TextView txtLogin;
+    private TextView txtDistancia;
+    private TextView txtDuracao;
+    private TextView txtCalorias;
+    private TextView txtPontuacao;
     private Button btnLeaderboard;
     private ImageView imagePerfil;
+    private Spinner spnEmblemas;
     private UsuarioViewModel usuarioViewModel;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +49,39 @@ public class EstatisticasActivity extends AppCompatActivity {
         txtTitulo = findViewById(R.id.toolbar_titulo);
         txtTitulo.setText("Estatísticas");
 
-        /*
+        txtDistancia = findViewById(R.id.activity_estatisticas_distancia_total_numero);
+        txtDuracao = findViewById(R.id.activity_estatisticas_duracao_total_numero);
+        txtCalorias = findViewById(R.id.activity_estatisticas_calorias_total_numero);
+        txtPontuacao = findViewById(R.id.activity_estatisticas_pontuacao_total_numero);
+        spnEmblemas = findViewById(R.id.sp_lista_emblemas);
+
+        usuarioViewModel = new ViewModelProvider(this)
+                .get(UsuarioViewModel.class);
+
+        usuarioViewModel.isLogged().observe(this, new Observer<Usuario>() {
+            @Override
+            public void onChanged(Usuario usuario) {
+                if(usuario != null){
+                    EstatisticasActivity.this.usuario = usuario;
+                    txtDistancia.setText(usuario.getDistanciaTotal().toString());
+                    txtDuracao.setText(String.valueOf(usuario.getDuracaoTotal()));
+                    txtCalorias.setText(usuario.getCaloriasTotal().toString());
+                    txtPontuacao.setText(String.valueOf(usuario.getPontuacao()));
+                    String[] emblema = getResources().getStringArray(R.array.spEmblemas);
+                    for (int i = 0; i < emblema.length; i++){
+                        if(emblema[i].equals(usuario.getEmblema())){
+                            spnEmblemas.setSelection(i);
+                        }
+                    }
+
+                }else{
+                    startActivity(new Intent(EstatisticasActivity.this,
+                            UsuarioLoginActivity.class));
+                    finish();
+                }
+            }
+        });
+
         btnLeaderboard = findViewById(R.id.btn_activity_estatisticas_leaderboard);
         btnLeaderboard.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -53,7 +92,7 @@ public class EstatisticasActivity extends AppCompatActivity {
                 finish();
             }
         });
-        */
+
         txtLogin = findViewById(R.id.estatisticas_profile_name);
         txtLogin.setOnClickListener(new View.OnClickListener(){
             @Override

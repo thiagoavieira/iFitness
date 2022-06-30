@@ -24,6 +24,11 @@
         android:icon="@drawable/ic_home_progress" />
 
     <item
+        android:id="@+id/nav_leaderboard"
+        android:title="@string/menu_drawer_leaderboard"
+        android:icon="@drawable/ic_leaderboard" />
+
+    <item
         android:id="@+id/nav_logout"
         android:title="@string/menu_drawer_sair"
         android:icon="@drawable/ic_logout" />
