@@ -79,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, UsuarioPerfilActivity.class);
                         startActivity(intent);
                         break;
+                    case R.id.nav_lista_atividades:
+                        intent = new Intent(MainActivity.this, ListaAtividadesActivity.class);
+                        startActivity(intent);
+                        break;
                     case R.id.nav_my_progress:
                         intent = new Intent(MainActivity.this, EstatisticasActivity.class);
                         startActivity(intent);

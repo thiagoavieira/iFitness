@@ -9,11 +9,9 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
-@Entity(tableName = "usuario")
 public class Usuario implements Serializable {
 
-    @NonNull
-    @PrimaryKey
+
     private String id;
     private String email;
     private String nome;
@@ -55,7 +53,6 @@ public class Usuario implements Serializable {
                 "", "", 0, 0.0, 0, 0.0);
     }
 
-    @NonNull
     public String getId() {
         return id;
     }

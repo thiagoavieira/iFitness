@@ -55,6 +55,20 @@
 
     <string name="msg_atividade_sucesso">Atividade cadastrada com sucesso!</string>
     <string name="menu_drawer_leaderboard">Leaderboard</string>
+    <string name="txt_lista_atividades_categoria">Categoria:</string>
+    <string name="txt_lista_atividades_distancia">Distância (km):</string>
+    <string name="txt_lista_atividades_duracao">Duração (min):</string>
+    <string name="txt_lista_atividades_data">Data:</string>
+    <string name="txt_lista_atividade_default">Você ainda não possui nenhuma atividade</string>
+    <string name="txt_lista_atividades_nome">Atividades</string>
+    <string name="txt_lista_atividades_categoria_nome">Categoria</string>
+    <string name="txt_lista_atividades_numero">0</string>
+    <string name="txt_lista_atividades_data_default">dd/MM/yyyy</string>
+    <string name="txt_leaderboard_default">Ainda não existe um usuário com pontuação</string>
+    <string name="txt_leaderboard_nome">Nome:</string>
+    <string name="txt_leaderboard_pontuacao">Pontuação:</string>
+    <string name="txt_leaderboard_nome_campo">nome</string>
+    <string name="txt_leaderboard_pontuacao_numero">0</string>
     <!-- Array Spinner Sexo -->
     <string-array name="spSexo">
         <item>Masculino</item>

@@ -37,6 +37,9 @@
             android:name=".LeaderboardActivity"
             android:exported="false" />
         <activity
+            android:name=".ListaAtividadesActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>

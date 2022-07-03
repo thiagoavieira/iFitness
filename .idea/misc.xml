@@ -3,17 +3,38 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable-icons/ic_launcher_logo_background.xml" value="0.14" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1235" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable-v24/ic_timer.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable-v24/profile_icon.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_account.xml" value="0.14" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_baseline_fitness_center_24.xml" value="0.1275" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_caminhada.xml" value="0.1445" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_ciclismo.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_corrida.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_eight.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_five.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_four.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_home.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_home_icon_background.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_home_progress.xml" value="0.14" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1235" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_launcher_logo_background.xml" value="0.1235" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_leaderboard.xml" value="0.113" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_nine.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_seven.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_six.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/ic_ten.xml" value="0.14" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/drawable/rounded.xml" value="0.1" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/activity_estatisticas.xml" value="0.33" />
-        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/activity_leaderboard.xml" value="0.15172101449275363" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/activity_historico_atividades.xml" value="0.22" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/activity_leaderboard.xml" value="0.25" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/activity_lista_atividades.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/activity_natacao_detalhe.xml" value="0.15172101449275363" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/activity_usuario_cadastro.xml" value="0.33" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/activity_usuario_perfil.xml" value="0.25" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/atividade_item.xml" value="0.33" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/menu_header_layout.xml" value="0.15172101449275363" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/menu_navigation_view.xml" value="0.33" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/iFitness/app/src/main/res/layout/menu_toolbar_layout.xml" value="0.15172101449275363" />

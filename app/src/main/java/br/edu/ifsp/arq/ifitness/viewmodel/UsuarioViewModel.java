@@ -9,11 +9,11 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.List;
 import java.util.Optional;
 
-import br.edu.ifsp.arq.ifitness.model.Atividades;
+import br.edu.ifsp.arq.ifitness.model.Atividade;
 import br.edu.ifsp.arq.ifitness.model.Usuario;
-import br.edu.ifsp.arq.ifitness.model.UsuarioComAtividades;
 import br.edu.ifsp.arq.ifitness.repository.UsuariosRepository;
 
 public class UsuarioViewModel extends AndroidViewModel {
@@ -31,11 +31,9 @@ public class UsuarioViewModel extends AndroidViewModel {
         usuariosRepository.createUsuario(usuario);
     }
 
-    public void createAtividade(Atividades atividades){
-        usuariosRepository.createAtividade(atividades);
+    public void createAtividade(Atividade atividade){
+        usuariosRepository.createAtividade(atividade);
     }
-
-
 
     public void update(Usuario usuario){
         usuariosRepository.update(usuario);
@@ -58,6 +56,20 @@ public class UsuarioViewModel extends AndroidViewModel {
             return new MutableLiveData<>(null);
         }
         return usuariosRepository.load(id.get());
+    }
+
+    public MutableLiveData<List<Atividade>> getAtividadesById() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplication());
+        Optional<String> id = Optional.ofNullable(sharedPreferences.getString(USUARIO_ID, null));
+        if(!id.isPresent()){
+            return new MutableLiveData<>(null);
+        }
+        return usuariosRepository.getAtividadesById(id.get());
+    }
+
+    public MutableLiveData<List<Usuario>> getUsuarios() {
+
+        return usuariosRepository.getUsuarios();
     }
 
     public void resetPassword(String email) {

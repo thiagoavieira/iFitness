@@ -19,9 +19,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.regex.Pattern;
 
-import br.edu.ifsp.arq.ifitness.model.Atividades;
+import br.edu.ifsp.arq.ifitness.model.Atividade;
 import br.edu.ifsp.arq.ifitness.model.Categoria;
 import br.edu.ifsp.arq.ifitness.model.Usuario;
 import br.edu.ifsp.arq.ifitness.viewmodel.UsuarioViewModel;
@@ -73,18 +72,18 @@ public class NatacaoDetalheActivity extends AppCompatActivity {
                                 Calendar cal = Calendar.getInstance();
                                 Date date = cal.getTime();
 
-                                Atividades atividades = new Atividades(
+                                Atividade atividade = new Atividade(
                                         usuario.getId(),
                                         Categoria.NATACAO,
                                         Double.parseDouble(txtDistancia.getText().toString()),
                                         Integer.parseInt(txtDuracao.getText().toString()),
                                         dateFormat.format(date));
 
-                                usuarioViewModel.createAtividade(atividades);
+                                usuarioViewModel.createAtividade(atividade);
 
-                                Double distanciaAux = atividades.getDistancia();
+                                Double distanciaAux = atividade.getDistancia();
                                 usuario.setDistanciaTotal(usuario.getDistanciaTotal()+distanciaAux);
-                                int duracaoAux = atividades.getDuracao();
+                                int duracaoAux = atividade.getDuracao();
                                 usuario.setDuracaoTotal(usuario.getDuracaoTotal()+duracaoAux);
                                 Double caloriasAux = duracaoAux * distanciaAux;
                                 usuario.setCaloriasTotal(usuario.getCaloriasTotal()+caloriasAux);

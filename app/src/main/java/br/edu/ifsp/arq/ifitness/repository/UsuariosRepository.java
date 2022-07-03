@@ -17,20 +17,18 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
-import br.edu.ifsp.arq.ifitness.database.AppDatabase;
-import br.edu.ifsp.arq.ifitness.database.UsuarioDao;
-import br.edu.ifsp.arq.ifitness.model.Atividades;
+import br.edu.ifsp.arq.ifitness.model.Atividade;
 import br.edu.ifsp.arq.ifitness.model.Usuario;
-import br.edu.ifsp.arq.ifitness.model.UsuarioComAtividades;
 import br.edu.ifsp.arq.ifitness.viewmodel.UsuarioViewModel;
 
 
@@ -43,14 +41,12 @@ public class UsuariosRepository {
 
     private SharedPreferences preference;
 
-    private UsuarioDao usuarioDao;
 
     private FirebaseFirestore firestore;
 
     private RequestQueue queue;
 
     public UsuariosRepository(Application application) {
-        usuarioDao = AppDatabase.getInstance(application).usuarioDao();
         firestore = FirebaseFirestore.getInstance();
         queue = Volley.newRequestQueue(application);
         preference = PreferenceManager.getDefaultSharedPreferences(application);
@@ -159,9 +155,9 @@ public class UsuariosRepository {
         queue.add(request);
     }
 
-    public void createAtividade(Atividades atividades)  {
-        firestore.collection("atividade").document(atividades.getId()).set(atividades).addOnSuccessListener(unused -> {
-            Log.d(this.toString(), "Atividade de " + atividades.getCategoria() + " cadastrada com scuesso.");
+    public void createAtividade(Atividade atividade)  {
+        firestore.collection("atividade").document(atividade.getId()).set(atividade).addOnSuccessListener(unused -> {
+            Log.d(this.toString(), "Atividade de " + atividade.getCategoria() + " cadastrada com scuesso.");
         });
     }
 
@@ -183,26 +179,37 @@ public class UsuariosRepository {
         return liveData;
     }
 
-    public LiveData<UsuarioComAtividades> loadUsuarioComAtividades(String usuarioID){
-        return usuarioDao.loadUsuarioComAtividadesById(usuarioID);
+
+    public MutableLiveData<List<Atividade>> getAtividadesById(String usuarioId) {
+        MutableLiveData<List<Atividade>> liveData = new MutableLiveData<>();
+
+        Query atividadeRef = firestore.collection("atividade").whereEqualTo("usuarioId", usuarioId).limit(5);
+
+        atividadeRef.get().addOnSuccessListener(snapshot -> {
+            List<Atividade> atividades = snapshot.toObjects(Atividade.class);
+
+            liveData.setValue(atividades);
+        });
+
+        return liveData;
     }
 
 
-    public void insert(Usuario usuario){
-        usuarioDao.insert(usuario);
+
+    public MutableLiveData<List<Usuario>> getUsuarios() {
+        MutableLiveData<List<Usuario>> liveData = new MutableLiveData<>();
+
+        Query atividadeRef = firestore.collection("usuario").limit(5).orderBy("pontuacao", Query.Direction.DESCENDING);
+
+        atividadeRef.get().addOnSuccessListener(snapshot -> {
+            System.out.println("entrou no repository /n" + snapshot.getDocuments());
+            List<Usuario> usuarios = snapshot.toObjects(Usuario.class);
+
+            liveData.setValue(usuarios);
+        });
+
+        return liveData;
     }
-
-    public void insert(Atividades atividades){
-        usuarioDao.insert(atividades);
-    }
-
-
-
-    public void update(Atividades atividades){
-        usuarioDao.update(atividades);
-    }
-
-
     public Boolean update(Usuario usuario){
         final Boolean[] atualizado = {false};
 
@@ -214,8 +221,6 @@ public class UsuariosRepository {
 
         return atualizado[0];
     }
-
-
 
     public void resetPassword(String email){
         JSONObject parametros = new JSONObject();

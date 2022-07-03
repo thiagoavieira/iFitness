@@ -6,15 +6,12 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
-@Entity(tableName = "atividades")
-public class Atividades implements Serializable {
+public class Atividade implements Serializable {
 
-    @NonNull
-    @PrimaryKey
+
     private String id;
     private String usuarioId;
     private Categoria categoria;
@@ -22,7 +19,7 @@ public class Atividades implements Serializable {
     private int duracao;
     private String data;
 
-    public Atividades(String usuarioId, Categoria categoria, Double distancia, int duracao, String data) {
+    public Atividade(String usuarioId, Categoria categoria, Double distancia, int duracao, String data) {
         this.id = UUID.randomUUID().toString();
         this.usuarioId = usuarioId;
         this.categoria = categoria;
@@ -32,11 +29,10 @@ public class Atividades implements Serializable {
     }
 
     @Ignore
-    public Atividades() {
+    public Atividade() {
         this("", null, 0.0, 0, null);
     }
 
-    @NonNull
     public String getId() {
         return id;
     }
@@ -89,8 +85,8 @@ public class Atividades implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Atividades atividades = (Atividades) o;
-        return Objects.equals(id, atividades.id);
+        Atividade atividade = (Atividade) o;
+        return Objects.equals(id, atividade.id);
     }
 
     @Override
