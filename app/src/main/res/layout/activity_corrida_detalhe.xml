@@ -88,6 +88,34 @@
                 android:text="@string/corrida_detalhe_btn_confirmar"
                 android:textColor="@color/whiteSecondary" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/activity_detalhe_btn_atualizar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="3"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="@string/caminhada_detalhe_btn_atualizar"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/activity_detalhe_btn_remover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FD3B0A"
+                    android:text="@string/caminhada_detalhe_btn_remover"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

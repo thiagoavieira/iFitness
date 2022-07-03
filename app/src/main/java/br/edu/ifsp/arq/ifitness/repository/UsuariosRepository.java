@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -25,7 +26,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import br.edu.ifsp.arq.ifitness.model.Atividade;
 import br.edu.ifsp.arq.ifitness.model.Usuario;
@@ -40,7 +44,6 @@ public class UsuariosRepository {
     private static final String KEY = "?key=AIzaSyAK2BeRgzsasgAKPEYrvND0_GzK90W68Z0";
 
     private SharedPreferences preference;
-
 
     private FirebaseFirestore firestore;
 
@@ -210,6 +213,7 @@ public class UsuariosRepository {
 
         return liveData;
     }
+
     public Boolean update(Usuario usuario){
         final Boolean[] atualizado = {false};
 
@@ -220,6 +224,30 @@ public class UsuariosRepository {
         });
 
         return atualizado[0];
+    }
+
+    public Boolean updateAtividade(Atividade atividade){
+        final Boolean[] atualizado = {false};
+
+        Map<String, Object> updateMap = new ConcurrentHashMap();
+        updateMap.put("distancia", atividade.getDistancia());
+        updateMap.put("duracao", atividade.getDuracao());
+
+        Task<Void> atividadeRef = firestore.collection("atividade").document(atividade.
+                getId()).update(updateMap).addOnSuccessListener(unused -> {
+                            atualizado[0] = true;
+                        });
+        return atualizado[0];
+    }
+
+    public Boolean delete(Atividade atividade) {
+        final Boolean[] deletado = {false};
+
+        Task<Void> atividadeRef = firestore.collection("atividade").document(atividade.
+                getId()).delete().addOnSuccessListener(unused -> {
+                            deletado[0] = true;
+                        });
+        return deletado[0];
     }
 
     public void resetPassword(String email){

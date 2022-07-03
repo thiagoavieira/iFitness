@@ -29,12 +29,17 @@ public class CaminhadaDetalheActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private TextView txtTitulo;
+
     private TextInputEditText txtDistancia;
     private TextInputEditText txtDuracao;
+
     private Button btnConfirmar;
+    private Button btnAtualizar;
+    private Button btnRemover;
 
+    private Atividade atividade;
+    private Usuario usuario;
     private UsuarioViewModel usuarioViewModel;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +62,25 @@ public class CaminhadaDetalheActivity extends AppCompatActivity {
         txtDistancia = findViewById(R.id.txt_edit_distancia);
         txtDuracao = findViewById(R.id.txt_edit_duracao);
 
-
         btnConfirmar = findViewById(R.id.activity_detalhe_btn_confirmar);
+        btnAtualizar = findViewById(R.id.activity_detalhe_btn_atualizar);
+        btnRemover = findViewById(R.id.activity_detalhe_btn_remover);
+
+        btnAtualizar.setVisibility(View.INVISIBLE);
+        btnRemover.setVisibility(View.INVISIBLE);
+
+        Intent intent = getIntent();
+        atividade = (Atividade) intent.getSerializableExtra("ativSelecionada");
+        if (atividade != null) {
+            btnAtualizar.setVisibility(View.VISIBLE);
+            btnRemover.setVisibility(View.VISIBLE);
+            btnConfirmar.setVisibility(View.INVISIBLE);
+
+            txtDistancia.setText(atividade.getDistancia().toString());
+            txtDuracao.setText(String.valueOf(atividade.getDuracao()));
+        }
+
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
             public void onClick(View view) {
                 usuarioViewModel.isLogged().observe(CaminhadaDetalheActivity.this, new Observer<Usuario>() {
@@ -89,6 +108,7 @@ public class CaminhadaDetalheActivity extends AppCompatActivity {
                                 usuario.setDuracaoTotal(usuario.getDuracaoTotal()+duracaoAux);
                                 Double caloriasAux = duracaoAux * distanciaAux;
                                 usuario.setCaloriasTotal(usuario.getCaloriasTotal()+caloriasAux);
+
                                 usuario.setPontuacao(usuario.getDistanciaTotal().intValue());
 
                                 usuarioViewModel.update(usuario);
@@ -100,6 +120,56 @@ public class CaminhadaDetalheActivity extends AppCompatActivity {
                             Intent intent = new Intent(CaminhadaDetalheActivity.this,
                                     UsuarioLoginActivity.class);
                             startActivity(intent);
+                        }
+                    }
+                });
+            }
+        });
+
+        btnAtualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                usuarioViewModel.isLogged().observe(CaminhadaDetalheActivity.this, new Observer<Usuario>() {
+                    @Override
+                    public void onChanged(Usuario usuario) {
+                        if (usuario != null) {
+                            CaminhadaDetalheActivity.this.usuario = usuario;
+
+                            if (validate()) {
+
+                                int pontuacaoAntiga = atividade.getDistancia().intValue();
+
+                                atividade.setDistancia(Double.parseDouble(txtDistancia.getText().toString()));
+                                atividade.setDuracao(Integer.parseInt(String.valueOf(txtDuracao.getText())));
+
+                                usuarioViewModel.updateAtividade(atividade);
+
+                                usuario.setPontuacao(usuario.getPontuacao() + atividade.getDistancia().intValue() - pontuacaoAntiga);
+                                usuarioViewModel.update(usuario);
+
+                                Toast.makeText(CaminhadaDetalheActivity.this, "Caminhada atualizada!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        btnRemover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                usuarioViewModel.isLogged().observe(CaminhadaDetalheActivity.this, new Observer<Usuario>() {
+                    @Override
+                    public void onChanged(Usuario usuario) {
+                        if (usuario != null) {
+                            CaminhadaDetalheActivity.this.usuario = usuario;
+
+                            usuarioViewModel.delete(atividade);
+
+                            usuario.setPontuacao(usuario.getPontuacao() - atividade.getDistancia().intValue());
+                            usuarioViewModel.update(usuario);
+
+                            Toast.makeText(CaminhadaDetalheActivity.this, "Caminhada removida!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

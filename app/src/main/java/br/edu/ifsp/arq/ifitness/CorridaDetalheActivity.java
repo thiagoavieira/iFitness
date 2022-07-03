@@ -32,8 +32,13 @@ public class CorridaDetalheActivity extends AppCompatActivity {
 
     private TextInputEditText txtDistancia;
     private TextInputEditText txtDuracao;
-    private Button btnConfirmar;
 
+    private Button btnConfirmar;
+    private Button btnAtualizar;
+    private Button btnRemover;
+
+    private Atividade atividade;
+    private Usuario usuario;
     private UsuarioViewModel usuarioViewModel;
 
     @Override
@@ -58,8 +63,24 @@ public class CorridaDetalheActivity extends AppCompatActivity {
         txtDuracao = findViewById(R.id.txt_edit_duracao);
 
         btnConfirmar = findViewById(R.id.activity_detalhe_btn_confirmar);
-        btnConfirmar.setOnClickListener(new View.OnClickListener() {
+        btnAtualizar = findViewById(R.id.activity_detalhe_btn_atualizar);
+        btnRemover = findViewById(R.id.activity_detalhe_btn_remover);
 
+        btnAtualizar.setVisibility(View.INVISIBLE);
+        btnRemover.setVisibility(View.INVISIBLE);
+
+        Intent intent = getIntent();
+        atividade = (Atividade) intent.getSerializableExtra("ativSelecionada");
+        if (atividade != null) {
+            btnAtualizar.setVisibility(View.VISIBLE);
+            btnRemover.setVisibility(View.VISIBLE);
+            btnConfirmar.setVisibility(View.INVISIBLE);
+
+            txtDistancia.setText(atividade.getDistancia().toString());
+            txtDuracao.setText(String.valueOf(atividade.getDuracao()));
+        }
+
+        btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 usuarioViewModel.isLogged().observe(CorridaDetalheActivity.this, new Observer<Usuario>() {
@@ -98,6 +119,56 @@ public class CorridaDetalheActivity extends AppCompatActivity {
                             Intent intent = new Intent(CorridaDetalheActivity.this,
                                     UsuarioLoginActivity.class);
                             startActivity(intent);
+                        }
+                    }
+                });
+            }
+        });
+
+        btnAtualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                usuarioViewModel.isLogged().observe(CorridaDetalheActivity.this, new Observer<Usuario>() {
+                    @Override
+                    public void onChanged(Usuario usuario) {
+                        if (usuario != null) {
+                            CorridaDetalheActivity.this.usuario = usuario;
+
+                            if (validate()) {
+
+                                int pontuacaoAntiga = atividade.getDistancia().intValue();
+
+                                atividade.setDistancia(Double.parseDouble(txtDistancia.getText().toString()));
+                                atividade.setDuracao(Integer.parseInt(String.valueOf(txtDuracao.getText())));
+
+                                usuarioViewModel.updateAtividade(atividade);
+
+                                usuario.setPontuacao(usuario.getPontuacao() + atividade.getDistancia().intValue() - pontuacaoAntiga);
+                                usuarioViewModel.update(usuario);
+
+                                Toast.makeText(CorridaDetalheActivity.this, "Dados da corrida atualizados!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        btnRemover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                usuarioViewModel.isLogged().observe(CorridaDetalheActivity.this, new Observer<Usuario>() {
+                    @Override
+                    public void onChanged(Usuario usuario) {
+                        if (usuario != null) {
+                            CorridaDetalheActivity.this.usuario = usuario;
+
+                            usuarioViewModel.delete(atividade);
+
+                            usuario.setPontuacao(usuario.getPontuacao() - atividade.getDistancia().intValue());
+                            usuarioViewModel.update(usuario);
+
+                            Toast.makeText(CorridaDetalheActivity.this, "Dados da corrida removidos!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

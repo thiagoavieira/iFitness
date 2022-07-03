@@ -144,6 +144,7 @@ public class ListaAtividadesActivity extends AppCompatActivity {
                 txtCategoria1.setText(atividade.getCategoria().name()); txtData1.setText(atividade.getData());
 
                 alterarIcone(imgAtividade1);
+                alterarAtividade(llAtividade1, atividade);
                 break;
             case 1:
                 llAtividade2.setVisibility(View.VISIBLE);
@@ -151,6 +152,7 @@ public class ListaAtividadesActivity extends AppCompatActivity {
                 txtCategoria2.setText(atividade.getCategoria().name()); txtData2.setText(atividade.getData());
 
                 alterarIcone(imgAtividade2);
+                alterarAtividade(llAtividade2, atividade);
                 break;
             case 2:
                 llAtividade3.setVisibility(View.VISIBLE);
@@ -158,6 +160,7 @@ public class ListaAtividadesActivity extends AppCompatActivity {
                 txtCategoria3.setText(atividade.getCategoria().name()); txtData3.setText(atividade.getData());
 
                 alterarIcone(imgAtividade3);
+                alterarAtividade(llAtividade3, atividade);
                 break;
             case 3:
                 llAtividade4.setVisibility(View.VISIBLE);
@@ -165,6 +168,7 @@ public class ListaAtividadesActivity extends AppCompatActivity {
                 txtCategoria4.setText(atividade.getCategoria().name()); txtData4.setText(atividade.getData());
 
                 alterarIcone(imgAtividade4);
+                alterarAtividade(llAtividade4, atividade);
                 break;
             case 4:
                 llAtividade5.setVisibility(View.VISIBLE);
@@ -172,6 +176,7 @@ public class ListaAtividadesActivity extends AppCompatActivity {
                 txtCategoria5.setText(atividade.getCategoria().name()); txtData5.setText(atividade.getData());
 
                 alterarIcone(imgAtividade5);
+                alterarAtividade(llAtividade5, atividade);
                 break;
             case 5:
                 llAtividade6.setVisibility(View.VISIBLE);
@@ -179,6 +184,7 @@ public class ListaAtividadesActivity extends AppCompatActivity {
                 txtCategoria6.setText(atividade.getCategoria().name()); txtData6.setText(atividade.getData());
 
                 alterarIcone(imgAtividade6);
+                alterarAtividade(llAtividade6, atividade);
                 break;
             case 6:
                 llAtividade7.setVisibility(View.VISIBLE);
@@ -186,6 +192,7 @@ public class ListaAtividadesActivity extends AppCompatActivity {
                 txtCategoria7.setText(atividade.getCategoria().name()); txtData7.setText(atividade.getData());
 
                 alterarIcone(imgAtividade7);
+                alterarAtividade(llAtividade7, atividade);
                 break;
             case 7:
                 llAtividade8.setVisibility(View.VISIBLE);
@@ -193,6 +200,7 @@ public class ListaAtividadesActivity extends AppCompatActivity {
                 txtCategoria8.setText(atividade.getCategoria().name()); txtData8.setText(atividade.getData());
 
                 alterarIcone(imgAtividade8);
+                alterarAtividade(llAtividade8, atividade);
                 break;
             case 8:
                 llAtividade9.setVisibility(View.VISIBLE);
@@ -200,6 +208,7 @@ public class ListaAtividadesActivity extends AppCompatActivity {
                 txtCategoria9.setText(atividade.getCategoria().name()); txtData9.setText(atividade.getData());
 
                 alterarIcone(imgAtividade9);
+                alterarAtividade(llAtividade9, atividade);
                 break;
             case 9:
                 llAtividade10.setVisibility(View.VISIBLE);
@@ -207,9 +216,34 @@ public class ListaAtividadesActivity extends AppCompatActivity {
                 txtCategoria10.setText(atividade.getCategoria().name()); txtData10.setText(atividade.getData());
 
                 alterarIcone(imgAtividade10);
+                alterarAtividade(llAtividade10, atividade);
                 break;
         }
         indice++;
+    }
+
+    private void alterarAtividade(LinearLayout llAtividade, Atividade ativ) {
+        llAtividade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = null;
+                if(ativ.getCategoria().name().equals("CAMINHADA")){
+                    intent = new Intent(ListaAtividadesActivity.this,
+                            CaminhadaDetalheActivity.class);
+                }else if(ativ.getCategoria().name().equals("CORRIDA")){
+                    intent = new Intent(ListaAtividadesActivity.this,
+                            CorridaDetalheActivity.class);
+                }else if(ativ.getCategoria().name().equals("CICLISMO")){
+                    intent = new Intent(ListaAtividadesActivity.this,
+                            CiclismoDetalheActivity.class);
+                }else{
+                    intent = new Intent(ListaAtividadesActivity.this,
+                            NatacaoDetalheActivity.class);
+                }
+                intent.putExtra("ativSelecionada", ativ);
+                startActivity(intent);
+            }
+        });
     }
 
     private void alterarIcone(ImageView imgAtividade) {

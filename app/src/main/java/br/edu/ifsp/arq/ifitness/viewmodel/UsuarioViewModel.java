@@ -72,6 +72,14 @@ public class UsuarioViewModel extends AndroidViewModel {
         return usuariosRepository.getUsuarios();
     }
 
+    public void updateAtividade(Atividade atividade){
+        usuariosRepository.updateAtividade(atividade);
+    }
+
+    public void delete(Atividade atividade){
+        usuariosRepository.delete(atividade);
+    }
+
     public void resetPassword(String email) {
         usuariosRepository.resetPassword(email);
     }
