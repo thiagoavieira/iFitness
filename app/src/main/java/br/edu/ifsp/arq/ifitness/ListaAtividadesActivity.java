@@ -136,189 +136,92 @@ public class ListaAtividadesActivity extends AppCompatActivity {
     }
 
     private void apresentarHistorico(Atividade atividade) {
+        txtAtividadesDefault.setVisibility(View.INVISIBLE);
         switch (indice){
             case 0:
-                txtAtividadesDefault.setVisibility(View.INVISIBLE); llAtividade2.setVisibility(View.INVISIBLE);
-                llAtividade3.setVisibility(View.INVISIBLE); llAtividade4.setVisibility(View.INVISIBLE);
-                llAtividade5.setVisibility(View.INVISIBLE); llAtividade6.setVisibility(View.INVISIBLE);
-                llAtividade7.setVisibility(View.INVISIBLE); llAtividade8.setVisibility(View.INVISIBLE);
-                llAtividade9.setVisibility(View.INVISIBLE); llAtividade10.setVisibility(View.INVISIBLE);
                 llAtividade1.setVisibility(View.VISIBLE);
                 txtDuracao1.setText(String.valueOf(atividade.getDuracao())); txtDistancia1.setText(atividade.getDistancia().toString());
                 txtCategoria1.setText(atividade.getCategoria().name()); txtData1.setText(atividade.getData());
 
-                if(atividade.getCategoria().name().equals("CAMINHADA")){
-                    imgAtividade1.setImageResource(R.drawable.ic_caminhada);
-                }else if(atividade.getCategoria().name().equals("CORRIDA")){
-                    imgAtividade1.setImageResource(R.drawable.ic_corrida);
-                }else if(atividade.getCategoria().name().equals("CICLISMO")){
-                    imgAtividade1.setImageResource(R.drawable.ic_ciclismo);
-                }else{
-                    imgAtividade1.setImageResource(R.drawable.ic_natacao);
-                }
+                alterarIcone(imgAtividade1);
                 break;
             case 1:
-                txtAtividadesDefault.setVisibility(View.INVISIBLE);
-                llAtividade3.setVisibility(View.INVISIBLE); llAtividade4.setVisibility(View.INVISIBLE);
-                llAtividade5.setVisibility(View.INVISIBLE); llAtividade6.setVisibility(View.INVISIBLE);
-                llAtividade7.setVisibility(View.INVISIBLE); llAtividade8.setVisibility(View.INVISIBLE);
-                llAtividade9.setVisibility(View.INVISIBLE); llAtividade10.setVisibility(View.INVISIBLE);
                 llAtividade2.setVisibility(View.VISIBLE);
                 txtDuracao2.setText(String.valueOf(atividade.getDuracao())); txtDistancia2.setText(atividade.getDistancia().toString());
                 txtCategoria2.setText(atividade.getCategoria().name()); txtData2.setText(atividade.getData());
 
-                if(atividade.getCategoria().name().equals("CAMINHADA")){
-                    imgAtividade2.setImageResource(R.drawable.ic_caminhada);
-                }else if(atividade.getCategoria().name().equals("CORRIDA")){
-                    imgAtividade2.setImageResource(R.drawable.ic_corrida);
-                }else if(atividade.getCategoria().name().equals("CICLISMO")){
-                    imgAtividade2.setImageResource(R.drawable.ic_ciclismo);
-                }else{
-                    imgAtividade2.setImageResource(R.drawable.ic_natacao);
-                }
+                alterarIcone(imgAtividade2);
                 break;
             case 2:
-                txtAtividadesDefault.setVisibility(View.INVISIBLE); llAtividade4.setVisibility(View.INVISIBLE);
-                llAtividade5.setVisibility(View.INVISIBLE); llAtividade6.setVisibility(View.INVISIBLE);
-                llAtividade7.setVisibility(View.INVISIBLE); llAtividade8.setVisibility(View.INVISIBLE);
-                llAtividade9.setVisibility(View.INVISIBLE); llAtividade10.setVisibility(View.INVISIBLE);
                 llAtividade3.setVisibility(View.VISIBLE);
                 txtDuracao3.setText(String.valueOf(atividade.getDuracao())); txtDistancia3.setText(atividade.getDistancia().toString());
                 txtCategoria3.setText(atividade.getCategoria().name()); txtData3.setText(atividade.getData());
 
-                if(atividade.getCategoria().name().equals("CAMINHADA")){
-                    imgAtividade3.setImageResource(R.drawable.ic_caminhada);
-                }else if(atividade.getCategoria().name().equals("CORRIDA")){
-                    imgAtividade3.setImageResource(R.drawable.ic_corrida);
-                }else if(atividade.getCategoria().name().equals("CICLISMO")){
-                    imgAtividade3.setImageResource(R.drawable.ic_ciclismo);
-                }else{
-                    imgAtividade3.setImageResource(R.drawable.ic_natacao);
-                }
+                alterarIcone(imgAtividade3);
                 break;
             case 3:
-                txtAtividadesDefault.setVisibility(View.INVISIBLE);
-                llAtividade5.setVisibility(View.INVISIBLE); llAtividade6.setVisibility(View.INVISIBLE);
-                llAtividade7.setVisibility(View.INVISIBLE); llAtividade8.setVisibility(View.INVISIBLE);
-                llAtividade9.setVisibility(View.INVISIBLE); llAtividade10.setVisibility(View.INVISIBLE);
                 llAtividade4.setVisibility(View.VISIBLE);
                 txtDuracao4.setText(String.valueOf(atividade.getDuracao())); txtDistancia4.setText(atividade.getDistancia().toString());
                 txtCategoria4.setText(atividade.getCategoria().name()); txtData4.setText(atividade.getData());
 
-                if(atividade.getCategoria().name().equals("CAMINHADA")){
-                    imgAtividade4.setImageResource(R.drawable.ic_caminhada);
-                }else if(atividade.getCategoria().name().equals("CORRIDA")){
-                    imgAtividade4.setImageResource(R.drawable.ic_corrida);
-                }else if(atividade.getCategoria().name().equals("CICLISMO")){
-                    imgAtividade4.setImageResource(R.drawable.ic_ciclismo);
-                }else{
-                    imgAtividade4.setImageResource(R.drawable.ic_natacao);
-                }
+                alterarIcone(imgAtividade4);
                 break;
             case 4:
-                txtAtividadesDefault.setVisibility(View.INVISIBLE); llAtividade6.setVisibility(View.INVISIBLE);
-                llAtividade7.setVisibility(View.INVISIBLE); llAtividade8.setVisibility(View.INVISIBLE);
-                llAtividade9.setVisibility(View.INVISIBLE); llAtividade10.setVisibility(View.INVISIBLE);
                 llAtividade5.setVisibility(View.VISIBLE);
                 txtDuracao5.setText(String.valueOf(atividade.getDuracao())); txtDistancia5.setText(atividade.getDistancia().toString());
                 txtCategoria5.setText(atividade.getCategoria().name()); txtData5.setText(atividade.getData());
 
-                if(atividade.getCategoria().name().equals("CAMINHADA")){
-                    imgAtividade5.setImageResource(R.drawable.ic_caminhada);
-                }else if(atividade.getCategoria().name().equals("CORRIDA")){
-                    imgAtividade5.setImageResource(R.drawable.ic_corrida);
-                }else if(atividade.getCategoria().name().equals("CICLISMO")){
-                    imgAtividade5.setImageResource(R.drawable.ic_ciclismo);
-                }else{
-                    imgAtividade5.setImageResource(R.drawable.ic_natacao);
-                }
+                alterarIcone(imgAtividade5);
                 break;
             case 5:
-                txtAtividadesDefault.setVisibility(View.INVISIBLE);
-                llAtividade7.setVisibility(View.INVISIBLE); llAtividade8.setVisibility(View.INVISIBLE);
-                llAtividade9.setVisibility(View.INVISIBLE); llAtividade10.setVisibility(View.INVISIBLE);
                 llAtividade6.setVisibility(View.VISIBLE);
                 txtDuracao6.setText(String.valueOf(atividade.getDuracao())); txtDistancia6.setText(atividade.getDistancia().toString());
                 txtCategoria6.setText(atividade.getCategoria().name()); txtData6.setText(atividade.getData());
 
-                if(atividade.getCategoria().name().equals("CAMINHADA")){
-                    imgAtividade6.setImageResource(R.drawable.ic_caminhada);
-                }else if(atividade.getCategoria().name().equals("CORRIDA")){
-                    imgAtividade6.setImageResource(R.drawable.ic_corrida);
-                }else if(atividade.getCategoria().name().equals("CICLISMO")){
-                    imgAtividade6.setImageResource(R.drawable.ic_ciclismo);
-                }else{
-                    imgAtividade6.setImageResource(R.drawable.ic_natacao);
-                }
+                alterarIcone(imgAtividade6);
                 break;
             case 6:
-                txtAtividadesDefault.setVisibility(View.INVISIBLE); llAtividade8.setVisibility(View.INVISIBLE);
-                llAtividade9.setVisibility(View.INVISIBLE); llAtividade10.setVisibility(View.INVISIBLE);
                 llAtividade7.setVisibility(View.VISIBLE);
                 txtDuracao7.setText(String.valueOf(atividade.getDuracao())); txtDistancia7.setText(atividade.getDistancia().toString());
                 txtCategoria7.setText(atividade.getCategoria().name()); txtData7.setText(atividade.getData());
 
-                if(atividade.getCategoria().name().equals("CAMINHADA")){
-                    imgAtividade7.setImageResource(R.drawable.ic_caminhada);
-                }else if(atividade.getCategoria().name().equals("CORRIDA")){
-                    imgAtividade7.setImageResource(R.drawable.ic_corrida);
-                }else if(atividade.getCategoria().name().equals("CICLISMO")){
-                    imgAtividade7.setImageResource(R.drawable.ic_ciclismo);
-                }else{
-                    imgAtividade7.setImageResource(R.drawable.ic_natacao);
-                }
+                alterarIcone(imgAtividade7);
                 break;
             case 7:
-                txtAtividadesDefault.setVisibility(View.INVISIBLE);
-                llAtividade9.setVisibility(View.INVISIBLE); llAtividade10.setVisibility(View.INVISIBLE);
                 llAtividade8.setVisibility(View.VISIBLE);
                 txtDuracao8.setText(String.valueOf(atividade.getDuracao())); txtDistancia8.setText(atividade.getDistancia().toString());
                 txtCategoria8.setText(atividade.getCategoria().name()); txtData8.setText(atividade.getData());
 
-                if(atividade.getCategoria().name().equals("CAMINHADA")){
-                    imgAtividade8.setImageResource(R.drawable.ic_caminhada);
-                }else if(atividade.getCategoria().name().equals("CORRIDA")){
-                    imgAtividade8.setImageResource(R.drawable.ic_corrida);
-                }else if(atividade.getCategoria().name().equals("CICLISMO")){
-                    imgAtividade8.setImageResource(R.drawable.ic_ciclismo);
-                }else{
-                    imgAtividade8.setImageResource(R.drawable.ic_natacao);
-                }
+                alterarIcone(imgAtividade8);
                 break;
             case 8:
-                txtAtividadesDefault.setVisibility(View.INVISIBLE); llAtividade10.setVisibility(View.INVISIBLE);
                 llAtividade9.setVisibility(View.VISIBLE);
                 txtDuracao9.setText(String.valueOf(atividade.getDuracao())); txtDistancia9.setText(atividade.getDistancia().toString());
                 txtCategoria9.setText(atividade.getCategoria().name()); txtData9.setText(atividade.getData());
 
-                if(atividade.getCategoria().name().equals("CAMINHADA")){
-                    imgAtividade9.setImageResource(R.drawable.ic_caminhada);
-                }else if(atividade.getCategoria().name().equals("CORRIDA")){
-                    imgAtividade9.setImageResource(R.drawable.ic_corrida);
-                }else if(atividade.getCategoria().name().equals("CICLISMO")){
-                    imgAtividade9.setImageResource(R.drawable.ic_ciclismo);
-                }else{
-                    imgAtividade9.setImageResource(R.drawable.ic_natacao);
-                }
+                alterarIcone(imgAtividade9);
                 break;
             case 9:
-                txtAtividadesDefault.setVisibility(View.INVISIBLE);
                 llAtividade10.setVisibility(View.VISIBLE);
                 txtDuracao10.setText(String.valueOf(atividade.getDuracao())); txtDistancia10.setText(atividade.getDistancia().toString());
                 txtCategoria10.setText(atividade.getCategoria().name()); txtData10.setText(atividade.getData());
 
-                if(atividade.getCategoria().name().equals("CAMINHADA")){
-                    imgAtividade10.setImageResource(R.drawable.ic_caminhada);
-                }else if(atividade.getCategoria().name().equals("CORRIDA")){
-                    imgAtividade10.setImageResource(R.drawable.ic_corrida);
-                }else if(atividade.getCategoria().name().equals("CICLISMO")){
-                    imgAtividade10.setImageResource(R.drawable.ic_ciclismo);
-                }else{
-                    imgAtividade10.setImageResource(R.drawable.ic_natacao);
-                }
+                alterarIcone(imgAtividade10);
                 break;
         }
         indice++;
+    }
+
+    private void alterarIcone(ImageView imgAtividade) {
+        if(atividade.getCategoria().name().equals("CAMINHADA")){
+            imgAtividade.setImageResource(R.drawable.ic_caminhada);
+        }else if(atividade.getCategoria().name().equals("CORRIDA")){
+            imgAtividade.setImageResource(R.drawable.ic_corrida);
+        }else if(atividade.getCategoria().name().equals("CICLISMO")){
+            imgAtividade.setImageResource(R.drawable.ic_ciclismo);
+        }else{
+            imgAtividade.setImageResource(R.drawable.ic_natacao);
+        }
     }
 
     @Override

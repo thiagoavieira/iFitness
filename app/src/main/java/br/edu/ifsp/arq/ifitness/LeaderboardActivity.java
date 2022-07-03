@@ -78,6 +78,7 @@ public class LeaderboardActivity extends AppCompatActivity {
         llLeaderboard5 = findViewById(R.id.ll_leaderboard_5); llLeaderboard6 = findViewById(R.id.ll_leaderboard_6);
         llLeaderboard7 = findViewById(R.id.ll_leaderboard_7); llLeaderboard8 = findViewById(R.id.ll_leaderboard_8);
         llLeaderboard9 = findViewById(R.id.ll_leaderboard_9); llLeaderboard10 = findViewById(R.id.ll_leaderboard_10);
+
         llLeaderboard1.setVisibility(View.INVISIBLE); llLeaderboard2.setVisibility(View.INVISIBLE);
         llLeaderboard3.setVisibility(View.INVISIBLE); llLeaderboard4.setVisibility(View.INVISIBLE);
         llLeaderboard5.setVisibility(View.INVISIBLE); llLeaderboard6.setVisibility(View.INVISIBLE);
@@ -102,69 +103,35 @@ public class LeaderboardActivity extends AppCompatActivity {
         txtDefault.setText("Ranking por pontuação");
         switch (indice){
             case 0:
-                llLeaderboard2.setVisibility(View.INVISIBLE); llLeaderboard3.setVisibility(View.INVISIBLE);
-                llLeaderboard4.setVisibility(View.INVISIBLE); llLeaderboard5.setVisibility(View.INVISIBLE);
-                llLeaderboard6.setVisibility(View.INVISIBLE); llLeaderboard7.setVisibility(View.INVISIBLE);
-                llLeaderboard8.setVisibility(View.INVISIBLE); llLeaderboard9.setVisibility(View.INVISIBLE);
-                llLeaderboard10.setVisibility(View.INVISIBLE);
-
                 llLeaderboard1.setVisibility(View.VISIBLE);
                 txtLeaderboardNome1.setText(usuario.getNome()); txtLeaderboardPontuacao1.setText(String.valueOf(usuario.getPontuacao()));
                 break;
             case 1:
-                llLeaderboard3.setVisibility(View.INVISIBLE); llLeaderboard4.setVisibility(View.INVISIBLE);
-                llLeaderboard5.setVisibility(View.INVISIBLE); llLeaderboard6.setVisibility(View.INVISIBLE);
-                llLeaderboard7.setVisibility(View.INVISIBLE); llLeaderboard8.setVisibility(View.INVISIBLE);
-                llLeaderboard9.setVisibility(View.INVISIBLE); llLeaderboard10.setVisibility(View.INVISIBLE);
-
                 llLeaderboard2.setVisibility(View.VISIBLE);
                 txtLeaderboardNome2.setText(usuario.getNome()); txtLeaderboardPontuacao2.setText(String.valueOf(usuario.getPontuacao()));
                 break;
             case 2:
-                llLeaderboard4.setVisibility(View.INVISIBLE);
-                llLeaderboard5.setVisibility(View.INVISIBLE); llLeaderboard6.setVisibility(View.INVISIBLE);
-                llLeaderboard7.setVisibility(View.INVISIBLE); llLeaderboard8.setVisibility(View.INVISIBLE);
-                llLeaderboard9.setVisibility(View.INVISIBLE); llLeaderboard10.setVisibility(View.INVISIBLE);
-
                 llLeaderboard3.setVisibility(View.VISIBLE);
                 txtLeaderboardNome3.setText(usuario.getNome()); txtLeaderboardPontuacao3.setText(String.valueOf(usuario.getPontuacao()));
                 break;
             case 3:
-                llLeaderboard5.setVisibility(View.INVISIBLE); llLeaderboard6.setVisibility(View.INVISIBLE);
-                llLeaderboard7.setVisibility(View.INVISIBLE); llLeaderboard8.setVisibility(View.INVISIBLE);
-                llLeaderboard9.setVisibility(View.INVISIBLE); llLeaderboard10.setVisibility(View.INVISIBLE);
-
                 llLeaderboard4.setVisibility(View.VISIBLE);
                 txtLeaderboardNome4.setText(usuario.getNome()); txtLeaderboardPontuacao4.setText(String.valueOf(usuario.getPontuacao()));
                 break;
             case 4:
-                llLeaderboard6.setVisibility(View.INVISIBLE);
-                llLeaderboard7.setVisibility(View.INVISIBLE); llLeaderboard8.setVisibility(View.INVISIBLE);
-                llLeaderboard9.setVisibility(View.INVISIBLE); llLeaderboard10.setVisibility(View.INVISIBLE);
-
                 llLeaderboard5.setVisibility(View.VISIBLE);
                 txtLeaderboardNome5.setText(usuario.getNome()); txtLeaderboardPontuacao5.setText(String.valueOf(usuario.getPontuacao()));
                 break;
             case 5:
-                llLeaderboard7.setVisibility(View.INVISIBLE); llLeaderboard8.setVisibility(View.INVISIBLE);
-                llLeaderboard9.setVisibility(View.INVISIBLE); llLeaderboard10.setVisibility(View.INVISIBLE);
-
                 llLeaderboard6.setVisibility(View.VISIBLE);
                 txtLeaderboardNome6.setText(usuario.getNome()); txtLeaderboardPontuacao6.setText(String.valueOf(usuario.getPontuacao()));
             case 6:
-                llLeaderboard8.setVisibility(View.INVISIBLE);
-                llLeaderboard9.setVisibility(View.INVISIBLE); llLeaderboard10.setVisibility(View.INVISIBLE);
-
                 llLeaderboard7.setVisibility(View.VISIBLE);
                 txtLeaderboardNome7.setText(usuario.getNome()); txtLeaderboardPontuacao7.setText(String.valueOf(usuario.getPontuacao()));
             case 7:
-                llLeaderboard9.setVisibility(View.INVISIBLE); llLeaderboard10.setVisibility(View.INVISIBLE);
-
                 llLeaderboard8.setVisibility(View.VISIBLE);
                 txtLeaderboardNome8.setText(usuario.getNome()); txtLeaderboardPontuacao8.setText(String.valueOf(usuario.getPontuacao()));
             case 8:
-                llLeaderboard10.setVisibility(View.INVISIBLE);
-
                 llLeaderboard9.setVisibility(View.VISIBLE);
                 txtLeaderboardNome9.setText(usuario.getNome()); txtLeaderboardPontuacao9.setText(String.valueOf(usuario.getPontuacao()));
             case 9:
