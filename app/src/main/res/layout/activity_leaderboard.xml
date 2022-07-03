@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LeaderboardActivity">
+    tools:context=".LeaderboardActivity"
+    android:background="@color/whiteSecondary">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -26,6 +27,936 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/leaderboard_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/ic_leaderboard"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/txt_leaderboard_default"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/txt_leaderboard_default"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <LinearLayout
+                android:id="@+id/ll_leaderboard_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_leaderboard_user_1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/ranking_first"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_nome1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome_campo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1.5"
+                            android:text="@string/txt_leaderboard_pontuacao"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_pontuacao1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/txt_leaderboard_pontuacao_numero"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leaderboard_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_leaderboard_user_2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/ranking_second"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_nome2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome_campo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1.5"
+                            android:text="@string/txt_leaderboard_pontuacao"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_pontuacao2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/txt_leaderboard_pontuacao_numero"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leaderboard_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_leaderboard_user_3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:src="@drawable/ranking_third"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_nome3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome_campo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1.5"
+                            android:text="@string/txt_leaderboard_pontuacao"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_pontuacao3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/txt_leaderboard_pontuacao_numero"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leaderboard_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_leaderboard_user_4"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_margin="18dp"
+                        android:src="@drawable/ic_four"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_nome4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome_campo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1.5"
+                            android:text="@string/txt_leaderboard_pontuacao"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_pontuacao4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/txt_leaderboard_pontuacao_numero"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leaderboard_5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_leaderboard_user_5"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_margin="18dp"
+                        android:src="@drawable/ic_five"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_nome5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome_campo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1.5"
+                            android:text="@string/txt_leaderboard_pontuacao"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_pontuacao5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/txt_leaderboard_pontuacao_numero"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leaderboard_6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_leaderboard_user_6"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_margin="18dp"
+                        android:src="@drawable/ic_six"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_nome6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome_campo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1.5"
+                            android:text="@string/txt_leaderboard_pontuacao"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_pontuacao6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/txt_leaderboard_pontuacao_numero"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leaderboard_7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_leaderboard_user_7"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_margin="18dp"
+                        android:src="@drawable/ic_seven"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_nome7"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome_campo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1.5"
+                            android:text="@string/txt_leaderboard_pontuacao"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_pontuacao7"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/txt_leaderboard_pontuacao_numero"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leaderboard_8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_leaderboard_user_8"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_margin="18dp"
+                        android:src="@drawable/ic_eight"
+                        tools:ignore="ContentDescription,TooManyViews" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_nome8"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome_campo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1.5"
+                            android:text="@string/txt_leaderboard_pontuacao"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_pontuacao8"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/txt_leaderboard_pontuacao_numero"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leaderboard_9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_leaderboard_user_9"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_margin="18dp"
+                        android:src="@drawable/ic_nine"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_nome9"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome_campo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1.5"
+                            android:text="@string/txt_leaderboard_pontuacao"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_pontuacao9"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/txt_leaderboard_pontuacao_numero"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leaderboard_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:background="@drawable/rounded"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/img_leaderboard_user_10"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_margin="18dp"
+                        android:src="@drawable/ic_ten"
+                        tools:ignore="ContentDescription" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1.5"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_nome10"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:gravity="center_vertical"
+                            android:text="@string/txt_leaderboard_nome_campo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1.5"
+                            android:text="@string/txt_leaderboard_pontuacao"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            tools:ignore="NestedWeights" />
+
+                        <TextView
+                            android:id="@+id/txt_leaderboard_pontuacao10"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/txt_leaderboard_pontuacao_numero"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
