@@ -136,16 +136,27 @@ public class CiclismoDetalheActivity extends AppCompatActivity {
                             if (validate()) {
 
                                 int pontuacaoAntiga = atividade.getDistancia().intValue();
+                                Double distanciaAntiga = atividade.getDistancia();
+                                int duracaoAntiga = atividade.getDuracao();
+                                Double caloriasAntiga = atividade.getDuracao() * atividade.getDistancia();
 
                                 atividade.setDistancia(Double.parseDouble(txtDistancia.getText().toString()));
                                 atividade.setDuracao(Integer.parseInt(String.valueOf(txtDuracao.getText())));
 
                                 usuarioViewModel.updateAtividade(atividade);
 
-                                usuario.setPontuacao(usuario.getPontuacao() + atividade.getDistancia().intValue() - pontuacaoAntiga);
+                                Double caloriasAtual = atividade.getDuracao() * atividade.getDistancia();
+
+                                usuario.setDistanciaTotal(usuario.getDistanciaTotal() - distanciaAntiga + atividade.getDistancia());
+                                usuario.setDuracaoTotal(usuario.getDuracaoTotal() - duracaoAntiga + atividade.getDuracao());
+                                usuario.setCaloriasTotal(usuario.getCaloriasTotal()-caloriasAntiga+caloriasAtual);
+                                usuario.setPontuacao(usuario.getPontuacao() - pontuacaoAntiga + atividade.getDistancia().intValue());
+
                                 usuarioViewModel.update(usuario);
 
                                 Toast.makeText(CiclismoDetalheActivity.this, "Atividade de ciclismo atualizada!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(CiclismoDetalheActivity.this, ListaAtividadesActivity.class);
+                                startActivity(intent);
                             }
                         }
                     }
@@ -164,10 +175,18 @@ public class CiclismoDetalheActivity extends AppCompatActivity {
 
                             usuarioViewModel.delete(atividade);
 
+                            Double caloriasAtual = atividade.getDuracao() * atividade.getDistancia();
+
+                            usuario.setDistanciaTotal(usuario.getDistanciaTotal() - atividade.getDistancia());
+                            usuario.setDuracaoTotal(usuario.getDuracaoTotal() - atividade.getDuracao());
+                            usuario.setCaloriasTotal(usuario.getCaloriasTotal()-caloriasAtual);
                             usuario.setPontuacao(usuario.getPontuacao() - atividade.getDistancia().intValue());
+
                             usuarioViewModel.update(usuario);
 
                             Toast.makeText(CiclismoDetalheActivity.this, "Atividade de ciclismo removida!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(CiclismoDetalheActivity.this, MainActivity.class);
+                            startActivity(intent);
                         }
                     }
                 });

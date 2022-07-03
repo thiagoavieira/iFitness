@@ -80,6 +80,7 @@ public class EstatisticasActivity extends AppCompatActivity implements AdapterVi
                     txtDuracao.setText(String.valueOf(usuario.getDuracaoTotal()));
                     txtCalorias.setText(usuario.getCaloriasTotal().toString());
                     txtPontuacao.setText(String.valueOf(usuario.getPontuacao()));
+
                     String[] emblema = getResources().getStringArray(R.array.spEmblemas);
                     if (usuario.getDistanciaTotal() >= 150) {
                         customList = getCustomListPlatinum();
@@ -127,6 +128,8 @@ public class EstatisticasActivity extends AppCompatActivity implements AdapterVi
                         usuario.setEmblema("Troféu Iniciante (15km)");
                         usuarioViewModel.update(usuario);
                     } else {
+                        usuario.setEmblema("");
+                        usuarioViewModel.update(usuario);
                         txtEmblemas.setText("Você ainda não conquistou um emblema!");
                         txtEmblemas.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                         customSpinner.setVisibility(View.INVISIBLE);
