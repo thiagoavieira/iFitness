@@ -79,15 +79,5 @@
     </string-array>
     <!-- Array Spinner Emblemas -->
     <string-array name="spEmblemas">
-        <item>Troféu Iniciante (15km)</item>
-        <item>Troféu Bronze (25km)</item>
-        <item>Troféu Prata (50km)</item>
-        <item>Troféu Ouro (100km)</item>
-        <item>Troféu Platinum (150km)</item>
-    </string-array>
-
-    <!-- Array Spinner Sem Emblemas -->
-    <string-array name="spSemEmblemas">
-        <item>Sem emblemas disponíveis</item>
     </string-array>
 </resources>
