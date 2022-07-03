@@ -21,15 +21,19 @@ import br.edu.ifsp.arq.ifitness.viewmodel.UsuarioViewModel;
 
 public class EstatisticasActivity extends AppCompatActivity {
     private Toolbar toolbar;
+    private ImageView imagePerfil;
+
     private TextView txtTitulo;
     private TextView txtLogin;
     private TextView txtDistancia;
     private TextView txtDuracao;
     private TextView txtCalorias;
     private TextView txtPontuacao;
-    private Button btnLeaderboard;
-    private ImageView imagePerfil;
+    private TextView txtEmblemas;
     private Spinner spnEmblemas;
+
+    private Button btnLeaderboard;
+
     private UsuarioViewModel usuarioViewModel;
     private Usuario usuario;
 
@@ -53,6 +57,7 @@ public class EstatisticasActivity extends AppCompatActivity {
         txtDuracao = findViewById(R.id.activity_estatisticas_duracao_total_numero);
         txtCalorias = findViewById(R.id.activity_estatisticas_calorias_total_numero);
         txtPontuacao = findViewById(R.id.activity_estatisticas_pontuacao_total_numero);
+        txtEmblemas = findViewById(R.id.txt_view_estatisticas_emblemas);
         spnEmblemas = findViewById(R.id.sp_lista_emblemas);
 
         usuarioViewModel = new ViewModelProvider(this)
@@ -61,20 +66,50 @@ public class EstatisticasActivity extends AppCompatActivity {
         usuarioViewModel.isLogged().observe(this, new Observer<Usuario>() {
             @Override
             public void onChanged(Usuario usuario) {
-                if(usuario != null){
+                if (usuario != null) {
                     EstatisticasActivity.this.usuario = usuario;
                     txtDistancia.setText(usuario.getDistanciaTotal().toString());
                     txtDuracao.setText(String.valueOf(usuario.getDuracaoTotal()));
                     txtCalorias.setText(usuario.getCaloriasTotal().toString());
                     txtPontuacao.setText(String.valueOf(usuario.getPontuacao()));
                     String[] emblema = getResources().getStringArray(R.array.spEmblemas);
-                    for (int i = 0; i < emblema.length; i++){
-                        if(emblema[i].equals(usuario.getEmblema())){
-                            spnEmblemas.setSelection(i);
+                    if (usuario.getDistanciaTotal() > 150) {
+                        for (int i = 0; i < emblema.length; i++) {
+                            if (emblema[i].equals(usuario.getEmblema())) {
+                                spnEmblemas.setSelection(i);
+                            }
                         }
+                    } else if (usuario.getDistanciaTotal() > 100) {
+                        for (int i = 0; i < emblema.length - 1; i++) {
+                            if (emblema[i].equals(usuario.getEmblema())) {
+                                spnEmblemas.setSelection(i);
+                            }
+                        }
+                    } else if (usuario.getDistanciaTotal() > 50) {
+                        for (int i = 0; i < emblema.length - 2; i++) {
+                            if (emblema[i].equals(usuario.getEmblema())) {
+                                spnEmblemas.setSelection(i);
+                            }
+                        }
+                    } else if (usuario.getDistanciaTotal() > 25) {
+                        for (int i = 0; i < emblema.length - 3; i++) {
+                            if (emblema[i].equals(usuario.getEmblema())) {
+                                spnEmblemas.setSelection(i);
+                            }
+                        }
+                    } else if (usuario.getDistanciaTotal() > 15) {
+                        for (int i = 0; i < emblema.length - 4; i++) {
+                            if (emblema[i].equals(usuario.getEmblema())) {
+                                spnEmblemas.setSelection(i);
+                            }
+                        }
+                    } else {
+                        txtEmblemas.setText("Você ainda não conquistou um emblema!");
+                        txtEmblemas.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                        spnEmblemas.setVisibility(View.INVISIBLE);
                     }
 
-                }else{
+                } else {
                     startActivity(new Intent(EstatisticasActivity.this,
                             UsuarioLoginActivity.class));
                     finish();
@@ -83,9 +118,9 @@ public class EstatisticasActivity extends AppCompatActivity {
         });
 
         btnLeaderboard = findViewById(R.id.btn_activity_estatisticas_leaderboard);
-        btnLeaderboard.setOnClickListener(new View.OnClickListener(){
+        btnLeaderboard.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent intent = new Intent(EstatisticasActivity.this,
                         LeaderboardActivity.class);
                 startActivity(intent);
@@ -94,7 +129,7 @@ public class EstatisticasActivity extends AppCompatActivity {
         });
 
         txtLogin = findViewById(R.id.estatisticas_profile_name);
-        txtLogin.setOnClickListener(new View.OnClickListener(){
+        txtLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(EstatisticasActivity.this,
@@ -104,9 +139,7 @@ public class EstatisticasActivity extends AppCompatActivity {
         });
 
         imagePerfil = findViewById(R.id.estastisticas_profile_image);
-
     }
-
 
     @Override
     protected void onResume() {
@@ -114,24 +147,23 @@ public class EstatisticasActivity extends AppCompatActivity {
         usuarioViewModel.isLogged().observe(this, new Observer<Usuario>() {
             @Override
             public void onChanged(Usuario usuario) {
-                if(usuario != null){
+                if (usuario != null) {
                     txtLogin.setText(usuario.getNome()
                             + " " + usuario.getSobrenome());
                 }
                 String perfilImage = PreferenceManager
                         .getDefaultSharedPreferences(EstatisticasActivity.this)
                         .getString(MediaStore.EXTRA_OUTPUT, null);
-                if(perfilImage != null){
+                if (perfilImage != null) {
                     imagePerfil.setImageURI(Uri.parse(perfilImage));
-                }else{
+                } else {
                     imagePerfil.setImageResource(R.drawable.profile_icon);
                 }
             }
-        });{
-
+        });
+        {
         }
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {
